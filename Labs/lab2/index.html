@@ -7,39 +7,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Зброя та боєприпаси: ПЗРК</title>
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <header>
     <h1>Зброя та боєприпаси: ПЗРК</h1>
-
 </header>
-<style>
-    table,
-    th,
-    td {
-        border: 1px solid black;
-    }
-</style>
 
 <body>
     <!-- entire box -->
-    <div>
+    <div class="container">
         <!-- nav -->
-        <aside>
-            <h6>ЗМІСТ</h6>
+        <aside class="navigation">
+            <p>ЗМІСТ</p>
             <ul>
                 <li><a href="#main">Що таке ПЗРК?</a></li>
-                <li><a href="#expl">Як користуватися ПЗРК?</a></li>
-                <li><a href="#javelin">ПЗРК «Javelin»</a></li>
-                <li><a href="#igla">ПЗРК «Ігла»</a></li>
+                <li>
+                    <a href="#javelin">ПЗРК «Javelin»</a>
+                </li>
+                <li>
+                    <a href="#igla">ПЗРК «Ігла»</a>
+                </li>
                 <li><a href="#strila">ПЗРК «Стріла-3»</a></li>
                 <li><a href="#starstreak">ПЗРК «Starstreak»</a></li>
                 <li><a href="#stinger">ПЗРК «FIM-92 Stinger»</a></li>
                 <li><a href="#redeye">ПЗРК «FIM-43 Redeye»</a></li>
                 <li><a href="#blowpipe">ПЗРК «Blowpipe»</a></li>
+                <li><a href="#expl">Як користуватися ПЗРК?</a></li>
             </ul>
         </aside>
         <!-- Content -->
-        <div>
+        <div class="content">
             <!-- pzrk? -->
             <section class="main_section">
                 <h2 id="main">Що таке ПЗРК?</h2>
@@ -60,7 +57,7 @@
             <!-- javelin -->
             <section class="javelin_section">
                 <h2 id="javelin">ПЗРК «Javelin»</h2>
-                <img src="./img/javelin.jpg" alt="javelin" width="400" height="600">
+                <img id="img_javelin" src="./img/javelin.jpg" alt="javelin">
                 <p>
                     Джавелін — британський переносний зенітно-ракетний комплекс, призначений для ураження
                     вертольотів, літаків та інших засобів повітряного нападу противника, що здійснюють польоти на малих
@@ -120,8 +117,8 @@
                 <p>S15 або «Удосконалений Джавелін» (англ. Advanced Javelin) із комбінованою перешкодозахищеною системою
                     управління з наведенням лазерним променем</p>
                 <h4 id="LML">Lightweight Multiple Launcher (LML)</h4>
-                <img src="./img/Lightweight Multiple Launcher (LML).jpg" alt="Lightweight Multiple Launcher (LML)"
-                    height="400" width="300"">
+                <img id="img_lml" src="./img/Lightweight Multiple Launcher (LML).jpg"
+                    alt="Lightweight Multiple Launcher (LML)">
                 <p>LML (англ. Lightweight Multiple Launcher, буквально Полегшена багатоствольна пускова установка)
                     розроблена, щоб забезпечити ПЗРК «Джавелін» можливість обстрілу кількох цілей. Система LML
                     використовує три стандартні пускові труби ракет «Джавелін» і стандартний прицільний наплічний блок
@@ -131,7 +128,7 @@
                     та використовуються для регулювання висоти встановлення ПУ. При розгортанні в окопі опорну втулку
                     можна частково опустити опорною трубою і потім закріпити на відповідній висоті. При цьому одна з
                     опор триніжки звисає вертикально, а інші опори слугують для забезпечення бічної підтримки ПУ.</p>
-                <h4 id=" LMLV">Lightweight Multiple Launcher (Vehicle) (LML(V))</h4>
+                <h4 id="LMLV">Lightweight Multiple Launcher (Vehicle) (LML(V))</h4>
                 <p>Пускову установку LML(V) проєктували для встановлення на броньовану і неброньовану техніку та інші
                     сухопутні засоби забезпечення мобільності, для захисту аеродромних льотних полів та інших важливих
                     споруд
@@ -271,7 +268,7 @@
 
             <!-- Starstreak -->
             <section class="startsreak_section">
-                <h2 id="startsreak">ПЗРК «Starstreak»</h2>
+                <h2 id="starstreak">ПЗРК «Starstreak»</h2>
                 <img src="./img/starstreak.jpg" alt="starstreak" height="300" width="450">
                 <p>Starstreak — британський переносний
                     зенітно-ракетний комплекс, призначений для ураження вертольотів та літаків противника, що низько
@@ -582,13 +579,13 @@
 
             <section>
                 <h2>Джерела</h2>
-                <p>https://www.ukrmilitary.com/2022/01/fim-92-stinger.html</p>
-                <p>https://uk.wikipedia.org/wiki/%D0%A1%D1%82%D1%80%D1%96%D0%BB%D0%B0-3</p>
-                <p>https://uk.wikipedia.org/wiki/Javelin_(%D0%9F%D0%97%D0%A0%D0%9A)</p>
-                <p>http://surl.li/ddres</p>
-                <p>https://uk.wikipedia.org/wiki/FIM-92_Stinger</p>
-                <p>https://ru.wikipedia.org/wiki/FIM-43_Redeye</p>
-                <p>https://uk.wikipedia.org/wiki/Blowpipe</p>
+                <p><a href="https://www.ukrmilitary.com/2022/01/fim-92-stinger.html">https://www.ukrmilitary.com/2022/01/fim-92-stinger.html</a></p>
+                <p><a href="https://uk.wikipedia.org/wiki/%D0%A1%D1%82%D1%80%D1%96%D0%BB%D0%B0-3">https://uk.wikipedia.org/wiki/%D0%A1%D1%82%D1%80%D1%96%D0%BB%D0%B0-3</a></p>
+                <p><a href="https://uk.wikipedia.org/wiki/Javelin_(%D0%9F%D0%97%D0%A0%D0%9A)">https://uk.wikipedia.org/wiki/Javelin_(%D0%9F%D0%97%D0%A0%D0%9A)</a></p>
+                <p><a href="http://surl.li/ddres">http://surl.li/ddres</a></p>
+                <p><a href="https://uk.wikipedia.org/wiki/FIM-92_Stinger">https://uk.wikipedia.org/wiki/FIM-92_Stinger</a></p>
+                <p><a href="https://ru.wikipedia.org/wiki/FIM-43_Redeye">https://ru.wikipedia.org/wiki/FIM-43_Redeye</a></p>
+                <p><a href="https://uk.wikipedia.org/wiki/Blowpipe">https://uk.wikipedia.org/wiki/Blowpipe</a></p>
             </section>
         </div>
         <footer>
