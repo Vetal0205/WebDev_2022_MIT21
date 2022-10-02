@@ -45,9 +45,11 @@ header {
     padding-right: 100px;
     padding-bottom: 20px;
     padding-top: 20px;
-    background-color: var(--main-color);
 }
-
+header.shadow{
+    background-color: var(--main-color);
+    box-shadow: var(--box--shadow);
+}
 .logo img {
     width: 60px;
 }
