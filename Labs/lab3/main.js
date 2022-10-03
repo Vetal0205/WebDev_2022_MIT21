@@ -44,24 +44,41 @@ for (let i = 0; i < removeCartItemButtons.length; i++) {
     let button = removeCartItemButtons[i];
     button.addEventListener('click', removeCartItem);
 }
+let filterinput = document.querySelector('#search');
+filterinput.addEventListener('keyup', filterTitles)
 
 
+function filterTitles() {
+    let filterValue = document.querySelector('#search').value.toUpperCase();
+    let itemsContainer = document.querySelector('.items-container');
+    let boxes = itemsContainer.querySelectorAll('.box');
 
+    for (let i = 0; i < boxes.length; i++) {
+        let item = boxes[i].querySelector('h3');
+        if (item.textContent.toUpperCase().indexOf(filterValue) > -1){
+            boxes[i].style.display = '';
+        }
+        else{
+            boxes[i].style.display = 'none';
+        }
+    }
 
-function stockIndicatorAmount(){
+    console.log('catch')
+}
+
+function stockIndicatorAmount() {
     let itemsIndicator = document.querySelector('.stock-amount');
     let stockItemContainer = document.querySelector('.stock-items');
     console.log(stockItemContainer);
     itemsIndicator.textContent = stockItemContainer.children.length;
-    if (itemsIndicator.textContent == 0){
+    if (itemsIndicator.textContent == 0) {
         itemsIndicator.style.display = "none";
     }
-    else{
+    else {
         itemsIndicator.style.display = "initial";
     }
-    
-}
 
+}
 
 function addTostockClicked(event) {
     let addbutton = event.target;
@@ -82,10 +99,10 @@ function addItemToStock(title, weight, imgScr, quantity) {
     let stockRow = document.createElement('div')
     let stockItemContainer = document.getElementsByClassName('stock-items')[0];
     let stockItemNames = stockItemContainer.getElementsByClassName('stock-item-title');
-    
+
 
     for (let i = 0; i < stockItemNames.length; i++) {
-        if(stockItemNames[i].textContent == title){
+        if (stockItemNames[i].textContent == title) {
             let currentRow = stockItemNames[i].parentNode.parentNode;
             currentRow.getElementsByClassName('stock-quantity-input')[0].value = parseFloat(currentRow.getElementsByClassName('stock-quantity-input')[0].value) + quantity;
             return;
@@ -124,7 +141,7 @@ function removeCartItem(event) {
 
     let stockItemContainer = document.getElementsByClassName('stock-items')[0];
     stockItemContainer.removeChild(buttonClicked.parentNode.parentNode.parentNode);
-    
+
     updateStocktotal();
     stockIndicatorAmount();
 }
