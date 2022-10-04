@@ -26,11 +26,21 @@ window.onscroll = () => {
 }
 updateStocktotal()
 
+let buttonMinus = document.querySelectorAll('.bx-minus')
+for (let i = 0; i < buttonMinus.length; i++) {
+    let button = buttonMinus[i];
+    button.addEventListener('click', quantityChangedItemsMinus);
+}
+let buttonPlus = document.querySelectorAll('.bx-plus')
+for (let i = 0; i < buttonPlus.length; i++) {
+    let button = buttonPlus[i];
+    button.addEventListener('click', quantityChangedItemsPlus)
+}
 
 let quantityInputs = document.getElementsByClassName('stock-quantity-input');
 for (let i = 0; i < quantityInputs.length; i++) {
     let input = quantityInputs[i];
-    input.addEventListener('change', quantityChanged)
+    input.addEventListener('change', quantityChangedStock)
 }
 
 let addToStockButtons = document.getElementsByClassName('btn-add');
@@ -48,6 +58,24 @@ let filterinput = document.querySelector('#search');
 filterinput.addEventListener('keyup', filterTitles)
 
 
+function quantityChangedItemsPlus(event) {
+    let button = event.target;
+    let currentQuant = parseFloat(button.previousElementSibling.value);
+
+    button.previousElementSibling.value = currentQuant + 1 ;    
+}
+function quantityChangedItemsMinus(event) {
+    let button = event.target;
+
+    let currentQuant = parseFloat(button.nextElementSibling.value);
+    if (currentQuant <= 0) {
+        return
+    }
+    else {
+        button.nextElementSibling.value = currentQuant - 1 ;
+    }
+}
+
 function filterTitles() {
     let filterValue = document.querySelector('#search').value.toUpperCase();
     let itemsContainer = document.querySelector('.items-container');
@@ -55,21 +83,20 @@ function filterTitles() {
 
     for (let i = 0; i < boxes.length; i++) {
         let item = boxes[i].querySelector('h3');
-        if (item.textContent.toUpperCase().indexOf(filterValue) > -1){
+        if (item.textContent.toUpperCase().indexOf(filterValue) > -1) {
             boxes[i].style.display = '';
         }
-        else{
+        else {
             boxes[i].style.display = 'none';
         }
     }
 
-    console.log('catch')
+    
 }
 
 function stockIndicatorAmount() {
     let itemsIndicator = document.querySelector('.stock-amount');
     let stockItemContainer = document.querySelector('.stock-items');
-    console.log(stockItemContainer);
     itemsIndicator.textContent = stockItemContainer.children.length;
     if (itemsIndicator.textContent == 0) {
         itemsIndicator.style.display = "none";
@@ -87,7 +114,7 @@ function addTostockClicked(event) {
     let title = stockItem.getElementsByTagName('h3')[0].textContent;
     let weight = parseFloat(stockItem.getElementsByTagName('span')[0].textContent.replace('kg', ''));
     let imgScr = stockItem.getElementsByTagName('img')[0].attributes[0].value;
-    let quantity = parseFloat(stockItem.getElementsByClassName('quantity-num')[0].textContent);
+    let quantity = parseFloat(stockItem.getElementsByClassName('quantity-num')[0].value);
     if (quantity <= 0) {
         quantity = 1;
     }
@@ -125,9 +152,9 @@ function addItemToStock(title, weight, imgScr, quantity) {
     stockItemContainer.append(stockRow);
 
     stockRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem);
-    stockRow.getElementsByClassName('stock-quantity-input')[0].addEventListener('change', updateStocktotal);
+    stockRow.getElementsByClassName('stock-quantity-input')[0].addEventListener('change', quantityChangedStock);
 }
-function quantityChanged(event) {
+function quantityChangedStock(event) {
     let input = event.target;
     if (isNaN(input.value) || input.value <= 0) {
         input.value = 1;

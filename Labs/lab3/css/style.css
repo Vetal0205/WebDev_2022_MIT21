@@ -306,6 +306,12 @@ header.shadow {
     text-align: center;
     font-weight: 600;
     align-self: center;
+    background-color: var(--main-color);
+    border: none;
+    width: 1rem;
+}
+.items-container .box .content .quantity-box .quantity-num:active{
+    border: none;
 }
 
 .volunteers-heading {
