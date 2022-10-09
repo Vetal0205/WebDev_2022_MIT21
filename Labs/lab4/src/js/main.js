@@ -205,6 +205,7 @@ async function addCustomer(title, body, imgScr, alt) {
     customer.innerHTML = CustomersContent;
     CustomersContainer.append(customer);
 }
+// here is no photo API so when changing 'limit', amount of coments will rise except photos in there
 let response = fetch('https://dummyjson.com/posts?skip=3&limit=7').then(res => res.json()).then(json => parse(json.posts))
 console.log(response);
 async function parse(data) {
