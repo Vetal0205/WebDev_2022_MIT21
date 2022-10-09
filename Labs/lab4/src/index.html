@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANPAD</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+
+<body>
+    <header>
+        <a href="#home" class="logo">
+            <img src="./img/logo.png" alt="logo" width="60px">
+        </a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <ul class="navbar">
+            <li><a href="#home" id="home_m">Home</a></li>
+            <li><a href="#about" id="about_m">About</a></li>
+            <li><a href="#stock" id="stock_m">Stock</a></li>
+            <li><a href="#items" id="items_m">Items</a></li>
+            <li><a href="#volunteers" id="volunteers_m">volunteers</a></li>
+        </ul>
+        <div class="header-icons">
+            <div class="stock">
+                <a href="#stock"><i class='bx bx-cart-alt' id="stock-icon"></i></a>
+                <div class="stock-amount" id="stock-amount">0</div>
+            </div>
+            <i class='bx bx-search' id="search-icon"></i>
+        </div>
+        <div class="search-box">
+            <input type="search" id="search" placeholder="Search Here....">
+        </div>
+    </header>
+    <section class="home" id="home">
+        <div class="home-text">
+            <h1>Support Ukrainian army with MANPADs</h1>
+            <p>
+                Support the Ukrainian army, which is defending its land and the lives of Ukrainians
+            </p>
+            <a href="https://savelife.in.ua/" target="_blank" class="btn">Support now</a>
+        </div>
+        <div class="home-img">
+            <img src="./img/stinger.png" alt="home-img">
+        </div>
+    </section>
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="./img/lml.png" alt="about-img">
+        </div>
+        <div class="about-text">
+            <h2>what is MANPAD?</h2>
+            <p>
+                Man-portable air-defense system (MANPAD) is an anti-aircraft missile complex designed to strike
+                helicopters and low-flying enemy aircraft on counter and catch-up courses in conditions
+                influence of natural and artificial thermal obstacles.
+            </p>
+            <!-- <a href="/Labs/lab2/index.html" target="_blank">Learn more</a> -->
+        </div>
+    </section>
+
+    <section class="items" id="items">
+        <div class="items-heading">
+            <h2>Popular MANPADs</h2>
+        </div>
+        <div class="items-container">
+            <div class="box">
+                <img src="./img/blowpipe.png" alt="blowpipe">
+                <h3>Blowpipe</h3>
+                <div class="content">
+                    <span>2.2kg</span>
+                    <div class="quantity-box">
+                        <i class='bx bx-minus'></i>
+                        <input class="quantity-num" type="text" value="0" disabled>
+                        <i class='bx bx-plus'></i>
+                    </div>
+                    <button class="btn-add">add</button>
+                </div>
+            </div>
+            <div class="box">
+                <img src="./img/igla.png" alt="igla">
+                <h3>Igla</h3>
+                <div class="content">
+                    <span>1.3kg</span>
+                    <div class="quantity-box">
+                        <i class='bx bx-minus'></i>
+                        <input class="quantity-num" type="text" value="0" disabled>
+                        <i class='bx bx-plus'></i>
+                    </div>
+                    <button class="btn-add">add</button>
+                </div>
+            </div>
+            <div class="box">
+                <img src="./img/redeye.png" alt="redeye">
+                <h3>FIM-43 Redeye</h3>
+                <div class="content">
+                    <span>1kg</span>
+                    <div class="quantity-box">
+                        <i class='bx bx-minus'></i>
+                        <input class="quantity-num" type="text" value="0" disabled>
+                        <i class='bx bx-plus'></i>
+                    </div>
+                    <button class="btn-add">add</button>
+                </div>
+            </div>
+            <div class="box">
+                <img src="./img/stinger.png" alt="stinger">
+                <h3>FIM-92 Stinger</h3>
+                <div class="content">
+                    <span>2.3kg</span>
+                    <div class="quantity-box">
+                        <i class='bx bx-minus'></i>
+                        <input class="quantity-num" type="text" value="0" disabled>
+                        <i class='bx bx-plus'></i>
+                    </div>
+                    <button class="btn-add">add</button>
+                </div>
+            </div>
+            <div class="box">
+                <img src="./img/javelin.png" alt="javelin">
+                <h3>Javelin</h3>
+                <div class="content">
+                    <span>2.74kg</span>
+                    <div class="quantity-box">
+                        <i class='bx bx-minus'></i>
+                        <input class="quantity-num" type="text" value="0" disabled>
+                        <i class='bx bx-plus'></i>
+                    </div>
+                    <button class="btn-add">add</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="stock" id="stock">
+        <div class="stock-heading">
+            <h2>Stock</h2>
+        </div>
+        <div class="stock-container">
+            <div class="stock-row">
+                <span class="stock-item stock-header stock-column">ITEM</span>
+                <span class="stock-weight stock-header stock-column">WEIGHT</span>
+                <span class="stock-quantity stock-header stock-column">QUANTITY</span>
+            </div>
+            <div class="stock-items">
+                <!-- js generated -->
+            </div>
+            <div class="stock-total">
+                <!-- js generated -->
+            </div>
+        </div>
+    </section>
+    <section class="volunteers" id="volunteers">
+        <div class="volunteers-heading">
+            <h2>Our volunteer`s</h2>
+        </div>
+        <div class="volunteers-container">
+            <!-- js generated -->
+        </div>
+    </section>
+    <section class="footer">
+        <div class="footer-box">
+            <h3>MANPAD</h3>
+            <p>
+                Our goal is to help the Ukrainian military by providing weapons and ammunition, support veterans and
+                victims of the war, provide shelter and feed refugees
+            </p>
+            <div class="social">
+                <a href="https://www.facebook.com/profile.php?id=100024593870478" target="_blank"> <i
+                        class='bx bxl-facebook' id="facebook-icon"></i></a>
+                <a href="https://www.instagram.com/mr_mollan/" target="_blank"> <i class='bx bxl-instagram'
+                        id="instagram-icon"></i></a>
+                <a href="https://www.linkedin.com/in/vitalii-besliubniak-ab4709236/" target="_blank"> <i
+                        class='bx bxl-linkedin' id="linkedin-icon"></i></a>
+            </div>
+        </div>
+        <div class="footer-box">
+            <h3>Contact</h3>
+            <div class="contact">
+                <span><i class='bx bxs-map'></i>27501, Svetlovodsk, Ukraine</span>
+                <span><i class='bx bxs-phone'></i>+380 97 4600 711</span>
+                <span><i class='bx bxs-envelope'></i>vitalii.besliubniak@gmail.com</span>
+            </div>
+        </div>
+    </section>
+    <div class="copyright">
+        <p>&copy;2022 <a href="https://github.com/Vetal0205" target="_blank">Mollan</a> all rights reserved</p>
+    </div>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
