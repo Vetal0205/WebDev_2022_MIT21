@@ -1,4 +1,3 @@
-
 let search_bar = document.querySelector('.search-box');
 
 document.querySelector('#search-icon').onclick = () => {
@@ -206,15 +205,96 @@ async function addCustomer(title, body, imgScr, alt) {
     CustomersContainer.append(customer);
 }
 // here is no photo API so when changing 'limit', amount of coments will rise except photos in there
-let response = fetch('https://dummyjson.com/posts?skip=3&limit=7').then(res => res.json()).then(json => parse(json.posts))
-console.log(response);
+let response_posts = fetch('https://dummyjson.com/posts?skip=3&limit=7').then(res => res.json()).then(json => parse(json.posts))
 async function parse(data) {
-    for(let element =0; element < data.length; element++){
+    for (let element = 0; element < data.length; element++) {
         let title = await data[element].title;
         let body = await data[element].body;
-        console.log(body)
         let imgScr = `./img/volunteer${element}.jpg`
         let alt = `volunteer${element}`;
         await addCustomer(title, body, imgScr, alt)
     };
 }
+
+
+// weather api
+let iconElement = document.querySelector(".weather-icon");
+let tempElement = document.querySelector(".temperature-value p");
+let descElement = document.querySelector(".temperature-description p");
+let locationElement = document.querySelector(".location p");
+let notificationElement = document.querySelector(".notification");
+
+const weather = {};
+
+weather.temperature = {
+    unit : "celsius"
+}
+
+// По хорощому потрібно токен занести в файл .env і занести в .gitignore але в цьому випадку не буде працювати сайт
+const KELVIN = 273;
+const key = "82005d27a116c2880c8f0fcb866998a0";
+
+if('geolocation' in navigator){
+    navigator.geolocation.getCurrentPosition(setPosition, showError);
+}else{
+    notificationElement.style.display = "block";
+    notificationElement.innerHTML = "<p>Browser doesn't Support Geolocation</p>";
+}
+
+function setPosition(position){
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+    
+    getWeather(latitude, longitude);
+}
+
+function showError(error){
+    notificationElement.style.display = "block";
+    notificationElement.innerHTML = `<p> ${error.message} </p>`;
+}
+
+function getWeather(latitude, longitude){
+    let api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
+    
+    fetch(api)
+        .then(function(response){
+            let data = response.json();
+            return data;
+        })
+        .then(function(data){
+            weather.temperature.value = Math.floor(data.main.temp - KELVIN);
+            weather.description = data.weather[0].description;
+            weather.iconId = data.weather[0].icon;
+            weather.city = data.name;
+            weather.country = data.sys.country;
+        })
+        .then(function(){
+            displayWeather();
+        });
+}
+
+function displayWeather(){
+    iconElement.innerHTML = `<img src="./img/icons/${weather.iconId}.png"/>`;
+    tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
+    descElement.innerHTML = weather.description;
+    locationElement.innerHTML = `${weather.city}, ${weather.country}`;
+}
+
+function celsiusToFahrenheit(temperature){
+    return (temperature * 9/5) + 32;
+}
+
+tempElement.addEventListener("click", function(){
+    if(weather.temperature.value === undefined) return;
+    
+    if(weather.temperature.unit == "celsius"){
+        let fahrenheit = celsiusToFahrenheit(weather.temperature.value);
+        fahrenheit = Math.floor(fahrenheit);
+        
+        tempElement.innerHTML = `${fahrenheit}°<span>F</span>`;
+        weather.temperature.unit = "fahrenheit";
+    }else{
+        tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
+        weather.temperature.unit = "celsius"
+    }
+});
