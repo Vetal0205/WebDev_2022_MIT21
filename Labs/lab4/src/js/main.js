@@ -204,17 +204,21 @@ async function addCustomer(title, body, imgScr, alt) {
     customer.innerHTML = CustomersContent;
     CustomersContainer.append(customer);
 }
-// here is no photo API so when changing 'limit', amount of coments will rise except photos in there
-let response_posts = fetch('https://dummyjson.com/posts?skip=3&limit=7').then(res => res.json()).then(json => parse(json.posts))
-async function parse(data) {
-    for (let element = 0; element < data.length; element++) {
-        let title = await data[element].title;
-        let body = await data[element].body;
-        let imgScr = `./img/volunteer${element}.jpg`
-        let alt = `volunteer${element}`;
+async function Get_Posts_Users() {
+    const limit = "7";
+    const skip = "3";
+    let response_posts = await fetch(`https://dummyjson.com/posts?skip=${skip}&limit=${limit}`).then(resp => resp.json()).then(jsonp => jsonp.posts);
+    let response_users = await fetch(`https://dummyjson.com/users?skip=${skip}&limit=${limit}`).then(resu => resu.json()).then(jsonu => jsonu.users);
+   
+    for (let i = 0; i < response_posts.length; i++) {
+        let title = await response_posts[i].title;
+        let body = await response_posts[i].body;
+        let imgScr = `${response_users[i].image}`
+        let alt = `volunteer${i}`;
         await addCustomer(title, body, imgScr, alt)
     };
 }
+Get_Posts_Users();
 
 
 // weather api
@@ -227,73 +231,73 @@ let notificationElement = document.querySelector(".notification");
 const weather = {};
 
 weather.temperature = {
-    unit : "celsius"
+    unit: "celsius"
 }
 
 // По хорощому потрібно токен занести в файл .env і занести в .gitignore але в цьому випадку не буде працювати сайт
 const KELVIN = 273;
 const key = "82005d27a116c2880c8f0fcb866998a0";
 
-if('geolocation' in navigator){
+if ('geolocation' in navigator) {
     navigator.geolocation.getCurrentPosition(setPosition, showError);
-}else{
+} else {
     notificationElement.style.display = "block";
     notificationElement.innerHTML = "<p>Browser doesn't Support Geolocation</p>";
 }
 
-function setPosition(position){
+function setPosition(position) {
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
-    
+
     getWeather(latitude, longitude);
 }
 
-function showError(error){
+function showError(error) {
     notificationElement.style.display = "block";
     notificationElement.innerHTML = `<p> ${error.message} </p>`;
 }
 
-function getWeather(latitude, longitude){
+function getWeather(latitude, longitude) {
     let api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
-    
+
     fetch(api)
-        .then(function(response){
+        .then(function (response) {
             let data = response.json();
             return data;
         })
-        .then(function(data){
+        .then(function (data) {
             weather.temperature.value = Math.floor(data.main.temp - KELVIN);
             weather.description = data.weather[0].description;
             weather.iconId = data.weather[0].icon;
             weather.city = data.name;
             weather.country = data.sys.country;
         })
-        .then(function(){
+        .then(function () {
             displayWeather();
         });
 }
 
-function displayWeather(){
+function displayWeather() {
     iconElement.innerHTML = `<img src="./img/icons/${weather.iconId}.png"/>`;
     tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
     descElement.innerHTML = weather.description;
     locationElement.innerHTML = `${weather.city}, ${weather.country}`;
 }
 
-function celsiusToFahrenheit(temperature){
-    return (temperature * 9/5) + 32;
+function celsiusToFahrenheit(temperature) {
+    return (temperature * 9 / 5) + 32;
 }
 
-tempElement.addEventListener("click", function(){
-    if(weather.temperature.value === undefined) return;
-    
-    if(weather.temperature.unit == "celsius"){
+tempElement.addEventListener("click", function () {
+    if (weather.temperature.value === undefined) return;
+
+    if (weather.temperature.unit == "celsius") {
         let fahrenheit = celsiusToFahrenheit(weather.temperature.value);
         fahrenheit = Math.floor(fahrenheit);
-        
+
         tempElement.innerHTML = `${fahrenheit}°<span>F</span>`;
         weather.temperature.unit = "fahrenheit";
-    }else{
+    } else {
         tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
         weather.temperature.unit = "celsius"
     }
