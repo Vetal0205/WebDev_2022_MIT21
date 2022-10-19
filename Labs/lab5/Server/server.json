@@ -1,0 +1,124 @@
+{
+    "smartphones": [
+      {
+        "id": 1,
+        "title": "Vivo Y31",
+        "price": "8 236",
+        "image_link": "./img/smart1.png"
+      },
+      {
+        "id": 2,
+        "title": "Xiaomi POCO M3 Pro",
+        "price": "10 589",
+        "image_link": "./img/smart2.png"
+      },
+      {
+        "id": 3,
+        "title": "Samsung M32",
+        "price": "15 296",
+        "image_link": "./img/smart3.png"
+      },
+      {
+        "id": 4,
+        "title": "Realme 9 Pro",
+        "price": "15 296",
+        "image_link": "./img/smart4.png"
+      },
+      {
+        "id": 5,
+        "title": "Xiaomi Redmi Note 11S",
+        "price": "11 766",
+        "image_link": "./img/smart5.png"
+      },
+      {
+        "id": 6,
+        "title": "Xiaomi Redmi Note 11 Pro",
+        "price": "14 708",
+        "image_link": "./img/smart6.png"
+      },
+      {
+        "id": 7,
+        "title": "Honor 50",
+        "price": "18 237",
+        "image_link": "./img/smart7.png"
+      },
+      {
+        "id": 8,
+        "title": "Realme GT Master Edition",
+        "price": "15 296",
+        "image_link": "./img/smart8.png"
+      },
+      {
+        "id": 9,
+        "title": "Samsung Galaxy A52 4G",
+        "price": "14 708",
+        "image_link": "./img/smart9.png"
+      },
+      {
+        "id": 10,
+        "title": "Xiaomi 11T",
+        "price": "16 178",
+        "image_link": "./img/smart10.png"
+      },
+      {
+        "id": 11,
+        "title": "Poco X4 Pro 5G",
+        "price": "14 708",
+        "image_link": "./img/smart11.png"
+      },
+      {
+        "id": 12,
+        "title": "Oneplus Nord 2 5G",
+        "price": "17 943",
+        "image_link": "./img/smart12.png"
+      },
+      {
+        "id": 13,
+        "title": "Xiaomi POCO F3",
+        "price": "14 708",
+        "image_link": "./img/smart13.png"
+      },
+      {
+        "id": 14,
+        "title": "OnePlus 9 Pro",
+        "price": "41 182",
+        "image_link": "./img/smart14.png"
+      },
+      {
+        "id": 15,
+        "title": "Xiaomi 11T Pro",
+        "price": "20 002",
+        "image_link": "./img/smart15.png"
+      },
+      {
+        "id": 16,
+        "title": "Realme GT 2 Pro",
+        "price": "32 357",
+        "image_link": "./img/smart16.png"
+      },
+      {
+        "id": 17,
+        "title": "Samsung Galaxy S21 Ultra",
+        "price": "58 831",
+        "image_link": "./img/smart17.png"
+      },
+      {
+        "id": 18,
+        "title": "Apple iPhone 12 Mini",
+        "price": "32 357",
+        "image_link": "./img/smart18.png"
+      },
+      {
+        "id": 19,
+        "title": "Samsung S22 Ultra",
+        "price": "55 890",
+        "image_link": "./img/smart19.png"
+      },
+      {
+        "id": 20,
+        "title": "Apple 13 Pro Max",
+        "price": "52 948",
+        "image_link": "./img/smart20.png"
+      }
+    ]
+  }

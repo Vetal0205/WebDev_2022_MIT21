@@ -1,0 +1,62 @@
+@media (max-width:1060px) {
+    header {
+        padding: 16px 60px;
+    }
+
+    section {
+        padding: 50px 60px;
+    }
+
+    .home-text {
+        font-size: 2.4rem;
+    }
+}
+
+@media (max-width:990px) {
+    header {
+        padding: 16px 4%;
+    }
+
+    section {
+        padding: 50px 4%;
+    }
+
+    .home-text {
+        font-size: 2rem;
+    }
+
+}
+
+@media (max-width:770px) {
+    header {
+        padding: 12px 4%;
+    }
+
+    #menu-icon {
+        display: initial;
+        visibility: initial;
+        margin-right: 45%;
+
+    }
+
+    .navbar {
+        position: absolute;
+        top: -400%;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        row-gap: 1.4rem;
+        padding: 20px;
+        transition: 0.3s;
+        text-align: center;
+        background-color: $secondary-color;
+        margin: 0;
+
+    }
+
+    .navbar.active {
+        top: 100%;
+    }
+
+}

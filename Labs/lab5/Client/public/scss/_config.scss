@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+$primary-color: #ffe4c4;
+$secondary-color: #fff0de;
+$third-color: #fffbf7;
+$text-color: #271500;
+$box-shadow: 2px 4px 10px 4px rgb(14 55 54 / 15%);
+
+
+@mixin set_background_color_and_shadow($color, $shadow) {
+    background-color: $color;
+    box-shadow: $shadow;
+}
+
+@mixin set_font_weight_transform_size_color($weight, $transform, $size, $color) {
+    font-size: $size;
+    text-transform: $transform;
+    font-weight: $weight;
+    color: $color;
+}
